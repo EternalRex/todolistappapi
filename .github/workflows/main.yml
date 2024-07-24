@@ -7,12 +7,12 @@ on:
     - main
 
 env: 
-  AZURE_WEB_APP_NAME: todowebappapi
+  AZURE_WEB_APP_NAME: todo-list-api
   AZURE_WEB_APP_PACKAGE_PATH: "./publish"
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
       - uses: actions/checkout@v3 #checkout your code for processing
