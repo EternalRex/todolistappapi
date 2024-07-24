@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3 #checkout your code for processing
+      - uses: actions/checkout@v4 #checkout your code for processing
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
