@@ -4,23 +4,23 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - main
+      - main
 
-env: 
+env:
   AZURE_WEB_APP_NAME: todowebappapi
   AZURE_WEB_APP_PACKAGE_PATH: "./publish"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v3 #checkout your code for processing
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: "7.0.x"
 
       - name: Restore
         run: dotnet restore ./todolistappapi
@@ -37,6 +37,3 @@ jobs:
           app-name: ${{env.AZURE_WEB_APP_NAME}}
           publish-profile: ${{secrets.AZURE_API_SECRETS}}
           package: "${{env.AZURE_WEB_APP_PACKAGE_PATH}}"
-          
-      
-      
