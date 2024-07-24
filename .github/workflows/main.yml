@@ -7,20 +7,20 @@ on:
       - main
 
 env:
-  AZURE_WEB_APP_NAME: todo-list-api
+  AZURE_WEB_APP_NAME: todo-list-app-api2
   AZURE_WEB_APP_PACKAGE_PATH: "./publish"
 
 jobs:
   publish:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3 #checkout your code for processing
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "7.0.x"
+          dotnet-version: "8.x"
 
       - name: Restore
         run: dotnet restore ./todolistappapi
@@ -32,7 +32,7 @@ jobs:
         run: dotnet publish ./todolistappapi --configuration Release --no-build --output '${{env.AZURE_WEB_APP_PACKAGE_PATH}}'
 
       - name: Deployment
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: ${{env.AZURE_WEB_APP_NAME}}
           publish-profile: ${{secrets.AZURE_PUBLISH_PROFILE}}
