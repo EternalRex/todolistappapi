@@ -1,0 +1,13 @@
+#ignoring build files
+/bin
+/obj
+
+# Ignore NuGet packages folder (if using NuGet)
+**/packages/
+
+# Ignore documentation generation files (if using tools like docfx)
+**/docs/.*
+
+# Ignore any specific IDE or editor configuration files
+.idea/
+.vscode/
